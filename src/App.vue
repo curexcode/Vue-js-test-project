@@ -2,7 +2,7 @@
   <div class="container">
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <Header title="This Is Sparta!!!"/>
-    <Tasks :tasks="tasks" @delete-task="deleteTask"/>
+    <Tasks :tasks="tasks" @delete-task="deleteTask" @toggle-reminder="toggleReminder"/>
   </div>
 </template>
 
@@ -23,7 +23,17 @@ export default {
   },
   methods : {
     deleteTask(id){
-      console.log('App.vue Task', id);
+      this.tasks = this.tasks.filter( (task) => task.id !== id)
+    },
+
+    toggleReminder(id){
+      this.tasks = this.tasks.map( (task) => {
+          if(task.id === id)
+            return {...task, reminder: !task.reminder};
+          else
+            return task;
+        }
+      )
     }
   },
   created() {
