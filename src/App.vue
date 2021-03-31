@@ -1,8 +1,8 @@
 <template>
   <div class="container">
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <Header title="This is sparta"/>
-    <Tasks :tasks="tasks"/>
+    <Header title="This Is Sparta!!!"/>
+    <Tasks :tasks="tasks" @delete-task="deleteTask"/>
   </div>
 </template>
 
@@ -19,6 +19,11 @@ export default {
   data() {
     return {
       tasks: []
+    }
+  },
+  methods : {
+    deleteTask(id){
+      console.log('App.vue Task', id);
     }
   },
   created() {
