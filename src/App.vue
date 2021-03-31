@@ -1,6 +1,7 @@
 <template>
   <div class="container">
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+    <AddTask />
     <Header title="This Is Sparta!!!"/>
     <Tasks :tasks="tasks" @delete-task="deleteTask" @toggle-reminder="toggleReminder"/>
   </div>
@@ -9,12 +10,14 @@
 <script>
 import Header from './components/Header.vue';
 import Tasks from './components/Tasks.vue';
+import AddTask from './components/AddTask.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
-    Tasks 
+    Tasks,
+    AddTask
   },
   data() {
     return {

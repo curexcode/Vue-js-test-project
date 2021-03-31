@@ -19,7 +19,7 @@ export default{
     components: {
         Task,
     },
-    emits: ['delete-task', 'toggle-reminder'], 
+    emits: ['delete-task', 'toggle-reminder'],          // Telling the component to expect these emits
 
 }
 
