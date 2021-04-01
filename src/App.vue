@@ -23,7 +23,7 @@ export default {
     Tasks,
     AddTask
   },
-  data() {
+  data() {                  // Seems like this is the state equivalent
     return {
       tasks: [],
       showAddTask: false
@@ -48,7 +48,7 @@ export default {
       )
     }
   },
-  created() {
+  created() {               // Lifecycle method
     this.tasks = [
       {
         id: 1,
