@@ -52,35 +52,20 @@ export default {
         const res = await fetch('api/tasks');
         const data = await res.json()
 
+        return data
+    },
+
+    async fetchTask(id){
+        const res = await fetch(`api/tasks/${id}`);
+        const data = await res.json()
+
         console.log(data);
         return data
     }
 
   },
-  created() {               // Lifecycle method
-
-    this.fetchTasks();
-    
-    this.tasks = [
-      {
-        id: 1,
-        text: 'Docs Appointment',
-        day: 'March 1st at 2:30pm',
-        reminder: true,
-      },
-      {
-        id: 2,
-        text: 'School Meeting',
-        day: 'March 2st at 2:30pm',
-        reminder: true,
-      },
-      {
-        id: 3,
-        text: 'Food Shopping',
-        day: 'March 1st at 2:30pm',
-        reminder: false,
-      },
-    ]
+  async created() {               // Lifecycle method
+    this.tasks =  await this.fetchTasks();
   }
 }
 </script>
