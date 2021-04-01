@@ -27,7 +27,7 @@
     {
       "text": "Important Task",
       "day": "Now",
-      "reminder": false,
+      "reminder": true,
       "id": 7
     }
   ]
