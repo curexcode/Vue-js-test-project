@@ -22,7 +22,13 @@
       "id": 1877,
       "text": "Eat samosa",
       "day": "Now",
-      "reminder": true
+      "reminder": false
+    },
+    {
+      "text": "Go to sleep.",
+      "day": "4pm",
+      "reminder": true,
+      "id": 1878
     }
   ]
 }
