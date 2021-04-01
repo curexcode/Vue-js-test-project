@@ -30,8 +30,19 @@ export default {
     }
   },
   methods : {
-    deleteTask(id){
-      this.tasks = this.tasks.filter( (task) => task.id !== id)
+    async deleteTask(id){
+      // const data = await fetchTask(id);
+
+       const res = await fetch(`api/tasks/${id}`, {
+       method: 'DELETE'})
+
+       console.log('Deletion done!');
+       console.log(await res.json());
+       if(res.status === 200)
+          this.tasks = this.tasks.filter( (task) => task.id !== id);
+       else
+          alert('Error deleting task');
+        
     },
     async addTask(task){
 
