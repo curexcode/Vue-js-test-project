@@ -14,7 +14,7 @@ import AddTask from '../components/AddTask.vue';
 export default {
   name: 'Home',
   props:{
-      showAddTask : Boolean
+      showAddTask : Boolean,
   },
   components: {
     Tasks,
@@ -23,7 +23,6 @@ export default {
   data() {                  // Seems like this is the state equivalent
     return {
       tasks: [],
-      showAddTask: false
     }
   },
   methods : {
