@@ -1,8 +1,12 @@
 <template>
   <div class="container">
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <AddTask />
-    <Header title="This Is Sparta!!!"/>
+    <Header @toggle-add-task="showAddTask = !showAddTask" title="This Is Sparta!!!" 
+    :showAddTask="showAddTask"/>
+    
+    <div v-show="showAddTask">
+      <AddTask @add-task="addTask"/>
+    </div>
     <Tasks :tasks="tasks" @delete-task="deleteTask" @toggle-reminder="toggleReminder"/>
   </div>
 </template>
@@ -21,14 +25,19 @@ export default {
   },
   data() {
     return {
-      tasks: []
+      tasks: [],
+      showAddTask: false
     }
   },
   methods : {
     deleteTask(id){
       this.tasks = this.tasks.filter( (task) => task.id !== id)
     },
-
+    addTask(task){
+      console.log('Adding task');
+      this.tasks = [...this.tasks, task];
+      console.log(task);
+    },
     toggleReminder(id){
       this.tasks = this.tasks.map( (task) => {
           if(task.id === id)
