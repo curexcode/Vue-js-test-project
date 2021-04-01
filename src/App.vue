@@ -46,9 +46,21 @@ export default {
             return task;
         }
       )
+    },
+    
+    async fetchTasks(){
+        const res = await fetch('api/tasks');
+        const data = await res.json()
+
+        console.log(data);
+        return data
     }
+
   },
   created() {               // Lifecycle method
+
+    this.fetchTasks();
+    
     this.tasks = [
       {
         id: 1,
